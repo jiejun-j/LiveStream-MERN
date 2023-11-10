@@ -9,6 +9,14 @@ export const postRegister = async(req, res) => {
         if (userExists) {
             return res.status(409).send("email already in use");
         }
+
+        const encryptedPassword = await bcrypt.hash(password, 10);
+
+        const user = await User.create({
+            username,
+            email: email.toLowerCase(),
+            password: encryptedPassword,
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).send("error occurred, please try again");
