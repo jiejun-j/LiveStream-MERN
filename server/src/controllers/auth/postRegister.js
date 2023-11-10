@@ -1,12 +1,18 @@
 import User from "../../models/user.js";
 
 export const postRegister = async(req, res) => {
-    
-    const user = await User.create({
-        username: "Mark",
-        email: "test@123.com",
-        password: "password",
-    });
+    try {
+        const { username, email, password } = req.body;
 
-    return res.send("user has been created in the database");
+        const userExists = await User.exists({ email });
+
+        if (userExists) {
+            return res.status(409).send("email already in use");
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send("error occurred, please try again");
+    }
+
+    return res.send("user has been added to database");
 }
