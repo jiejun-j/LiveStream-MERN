@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register as registerRequest } from '../../api';
+import toast from 'react-hot-toast';
 
 
 export const useRegister = () => {
@@ -20,7 +21,10 @@ export const useRegister = () => {
         setIsLoading(false);
 
         if (response.error) {
-            return console.log(response.error);
+            return toast.error(
+                response.exception?.response?.data ||
+                "Error occured while registering. Please try again."
+            );
         }
 
         const { userDetails } = response.data;
