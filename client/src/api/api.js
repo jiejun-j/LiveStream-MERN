@@ -7,7 +7,7 @@ const apiClient = axios.create({
 
 export const login = async (data) => {
     try {
-    return apiClient.post('/auth/login', data);
+    return await apiClient.post('/auth/login', data);
     } catch (exception) {
         return {
             error: true,
@@ -18,7 +18,7 @@ export const login = async (data) => {
 
 export const register = async (data) => {
     try {
-    return apiClient.post('/auth/register', data);
+    return await apiClient.post('/auth/register', data);
     } catch (exception) {
         return {
             error: true,

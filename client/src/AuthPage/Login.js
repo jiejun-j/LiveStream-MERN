@@ -7,9 +7,12 @@ import {
     validatePassword,
     passwordValidationMessage,
 } from "../shared/validators";
+import { useLogin } from "../shared/hooks";
 
 
 export const Login = ({ switchAuthHandler }) => {
+    const { login, isLoading} = useLogin();
+
     const [formState, setFormState] = useState({
         email: {
             value: "",
@@ -57,6 +60,17 @@ export const Login = ({ switchAuthHandler }) => {
         }));
     };
 
+    const handleLogin = (event) => {
+        event.preventDefault();
+        
+        login(formState.email.value, formState.password.value)
+    }
+
+    const isSubmitButtonDisabled = 
+        isLoading ||
+        !formState.email.isValid || 
+        !formState.password.isValid
+
     return (
         <div className="login-container">
             <Logo text={"Log in to Twitch"} />
@@ -82,7 +96,8 @@ export const Login = ({ switchAuthHandler }) => {
                     validationMessage={passwordValidationMessage}
                 />
                 <button
-                    disabled={!formState.email.isValid || !formState.password.isValid}
+                    onClick={handleLogin}
+                    disabled={isSubmitButtonDisabled}
                 >
                     Login
                 </button>
