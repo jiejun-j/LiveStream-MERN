@@ -57,8 +57,6 @@ export const Login = ({ switchAuthHandler }) => {
         }));
     };
 
-    console.log(formState);
-
     return (
         <div className="login-container">
             <Logo text={"Log in to Twitch"} />
