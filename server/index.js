@@ -38,8 +38,3 @@ mongoose
     console.log("Database connection failed. Server is not started");
     console.log(err);
 });
-
-
-
-
-

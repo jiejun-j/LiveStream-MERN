@@ -6,3 +6,4 @@ export { getChannelSettings } from "./settings/getChannelSettings.js";
 export { putChannelSettings } from "./settings/putChannelSettings.js";
 export { patchChangePassword } from "./settings/patchChangePassword.js";
 export { postFollowChannel } from "./channels/postFollowChannel.js";
+export { getFollowedChannels } from "./channels/getFollowedChannels.js";

@@ -19,9 +19,3 @@ const channelSchema = new Schema({
 });
 
 export default mongoose.model("Channel", channelSchema);
-
-
-
-
-
-
