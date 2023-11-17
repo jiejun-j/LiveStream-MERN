@@ -1,6 +1,6 @@
 import React from "react";
 
-export const AuthInput = ({ 
+export const Input = ({ 
     field,
     label,
     value,
@@ -9,6 +9,7 @@ export const AuthInput = ({
     showErrorMessage,
     validationMessage,
     onBlurHandler,
+    textarea,
 }) => {
     const handleValueChange = (e) => {
         onChangeHandler(e.target.value, field);
@@ -23,17 +24,26 @@ export const AuthInput = ({
             <div className="auth-form-label">
                 <span>{label}</span>
             </div>
-            <input
+            {textarea ? (
+                <textarea
                 type={type}
                 value={value}
                 onChange={handleValueChange}
                 onBlur={handleInputBlur}
-            />
+                rows={5}
+                style={{ maxWidth: "400px%" }}
+                />
+            ) : (
+                <input
+                type={type}
+                value={value}
+                onChange={handleValueChange}
+                onBlur={handleInputBlur}
+                />
+            )}
             <span className="auth-form-validation-message">
                 {showErrorMessage && validationMessage}
             </span>
-
-
         </>
     );
 }

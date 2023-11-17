@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Logo } from "./Logo";
-import { AuthInput } from "./AuthInput";
 import { 
     emailValidationMessage,
     validateEmail,
@@ -8,6 +7,7 @@ import {
     passwordValidationMessage,
 } from "../shared/validators";
 import { useLogin } from "../shared/hooks";
+import { Input } from "../shared/components";
 
 
 export const Login = ({ switchAuthHandler }) => {
@@ -75,7 +75,7 @@ export const Login = ({ switchAuthHandler }) => {
         <div className="login-container">
             <Logo text={"Log in to Twitch"} />
             <form className="auth-form">
-                <AuthInput
+                <Input
                     field={"email"}
                     label={"Email"}
                     value={formState.email.value}
@@ -85,7 +85,7 @@ export const Login = ({ switchAuthHandler }) => {
                     showErrorMessage={formState.email.showError}
                     validationMessage={emailValidationMessage}
                 />
-                <AuthInput
+                <Input
                     field={"password"}
                     label={"Password"}
                     value={formState.password.value}
