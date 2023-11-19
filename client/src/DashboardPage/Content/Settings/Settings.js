@@ -3,6 +3,7 @@ import { StreamKey } from "./StreamKey";
 import { ChannelSettings } from "./ChannelSettings";
 import { PasswordSettings } from "./PasswordSettings";
 import { useChannelSettings } from "../../../shared/hooks";
+import { LoadingSpinner } from "../../../shared/components";
 
 const channelSettings = {
     title: "Dummy Channel",
@@ -13,16 +14,18 @@ const channelSettings = {
 }
 
 export const Settings = () => {
-    const { channelSettings } = useChannelSettings();
+    const { channelSettings, isFetching } = useChannelSettings();
 
-    if (!channelSettings) {
-        return <span>Fetching the data</span>;
+    if (isFetching || !channelSettings) {
+        return <LoadingSpinner />;
     }
 
-    return <div className="settings-container">
-        <span>Settings</span>
-        <ChannelSettings settings={channelSettings}/>
-        <PasswordSettings />
-        <StreamKey streamKey = {channelSettings.streamKey}/>
-    </div>
+    return (
+        <div className="settings-container">
+            <span>Settings</span>
+            <ChannelSettings settings={channelSettings} />
+            <PasswordSettings />
+            <StreamKey streamKey={channelSettings.streamKey} />
+        </div>
+    )
 };

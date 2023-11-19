@@ -5,6 +5,23 @@ const apiClient = axios.create({
     timeout: 1000,
 });
 
+apiClient.interceptors.request.use(
+    (config) => {
+        const userDetails = localStorage.getItem('user');
+
+        if (userDetails) {
+            const token = JSON.parse(userDetails).token;
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+
+        return config;
+        ````
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
 export const login = async (data) => {
     try {
     return await apiClient.post('/auth/login', data);
@@ -29,7 +46,7 @@ export const register = async (data) => {
 
 export const getChannelSettings = async () => {
     try {
-        return await apiClient.get(`/channels`);
+        return await apiClient.get(`/settings/channel`);
     } catch (exception) {
         return {
             error: true,

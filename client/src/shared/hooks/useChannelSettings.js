@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getChannelSettings } from '../../api';
 import toast from 'react-hot-toast';
 
@@ -25,8 +25,11 @@ export const useChannelSettings = () => {
         });
     };
 
-    const saveSettings = async () => {
-    };
+    const saveSettings = async () => {};
+
+    useEffect(() => {      
+        fetchChannelSettings();
+    }, []);
 
     return {
         ifFetching: !channelSettings,
