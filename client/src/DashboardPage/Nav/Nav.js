@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../resources/images/logoPlaceholder.svg";
 import { useUserDetails } from "../../shared/hooks";
+import { logout } from "../../shared/utils";
 
 const NavLogo = () => {
     return <div className="nav-logo-container">
@@ -34,6 +35,10 @@ export const Nav = () => {
         navigate("/channels");
     };
 
+    const handleLogout = () => {
+        logout();
+    }
+
     return (
         <div className="nav-container">
             <NavLogo />
@@ -44,7 +49,7 @@ export const Nav = () => {
                 ) : (
                     <div>
                     <NavButton text="My Account" onClickHandler={handleNavigateToSettings} />
-                    <NavButton text="Logout" onClickHandler={ () => {} } />
+                    <NavButton text="Logout" onClickHandler={handleLogout} />
                     </div>
                 )}
             </div>
