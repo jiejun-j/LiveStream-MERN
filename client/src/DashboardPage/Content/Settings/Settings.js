@@ -7,7 +7,7 @@ const channelSettings = {
     title: "Dummy Channel",
     description: "This is a dummy channel",
     avatarUrl: "https://www.w3schools.com/howto/img_avatar.png",
-    username: "dummyuser",
+    username: "dummy",
     streamKey: "1234567890",
 }
 
