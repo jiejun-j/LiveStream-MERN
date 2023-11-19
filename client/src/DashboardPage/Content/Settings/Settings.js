@@ -14,7 +14,7 @@ const channelSettings = {
 }
 
 export const Settings = () => {
-    const { channelSettings, isFetching } = useChannelSettings();
+    const { channelSettings, isFetching, saveSettings } = useChannelSettings();
 
     if (isFetching || !channelSettings) {
         return <LoadingSpinner />;
@@ -23,7 +23,7 @@ export const Settings = () => {
     return (
         <div className="settings-container">
             <span>Settings</span>
-            <ChannelSettings settings={channelSettings} />
+            <ChannelSettings settings={channelSettings} saveSettings={saveSettings}/>
             <PasswordSettings />
             <StreamKey streamKey={channelSettings.streamKey} />
         </div>
