@@ -18,6 +18,7 @@ apiClient.interceptors.request.use(
         ````
     },
     (error) => {
+        console.error("Error in request interceptor:", error);
         return Promise.reject(error);
     }
 );
@@ -91,6 +92,17 @@ export const getFollowedChannels = async () => {
 export const getChannels = async () => {
     try {
         return await apiClient.get(`/channels`);
+    } catch (exception) {
+        return {
+            error: true,
+            exception,
+        };
+    }
+};
+
+export const getChannelDetails = async (channelId) => {
+    try {
+        return await apiClient.get(`/channels/${channelId}`);
     } catch (exception) {
         return {
             error: true,

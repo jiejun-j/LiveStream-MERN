@@ -9,7 +9,7 @@ export const Content = (channels) => {
         <Routes>
             <Route path="settings" element={ < Settings />} />
             <Route path="channels" element={ < Channels channels={channels}/>} />
-            <Route path="channels/:id" element={ < ChannelView />} />
+            <Route path="channel/:id" element={ < ChannelView />} />
         </Routes>
     </div>;
 };

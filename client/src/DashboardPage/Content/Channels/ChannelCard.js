@@ -19,7 +19,7 @@ export const ChannelCard = ({
     navigateToChannelHandler,
 }) => {
     const handleNavigate = () => {
-        navigateToChannelHandler();
+        navigateToChannelHandler(id);
     };
 
     return (

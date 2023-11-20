@@ -28,6 +28,6 @@ export const getChannelDetails = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).send("error occurred, please try again");
+        return res.status(500).send("Channel not found. Please check channel url.");
     }
 };
