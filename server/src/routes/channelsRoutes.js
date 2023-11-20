@@ -18,7 +18,7 @@ const channelDetailsSchema = Joi.object({
 const validator = ExpressValidation.createValidator({});
 
 router.get(
-    '/:followed',
+    '/followed',
     verifyToken,
     getFollowedChannels,
 );
