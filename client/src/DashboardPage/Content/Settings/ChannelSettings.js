@@ -137,7 +137,7 @@ export const ChannelSettings = ({settings, saveSettings}) => {
                 />
             ))}
             <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
-                Save Changes
+                Update & Active Channel
             </button>
         </form>
     );
