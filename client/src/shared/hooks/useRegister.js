@@ -23,9 +23,11 @@ export const useRegister = () => {
         if (response.error) {
             return toast.error(
                 response.exception?.response?.data ||
-                "Error occured while registering. Please try again."
+                "Error occured while registering. Please try again"
             );
         }
+
+        toast.success("Registered successfully");
 
         const { userDetails } = response.data;
 

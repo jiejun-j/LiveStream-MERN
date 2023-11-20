@@ -10,7 +10,7 @@ export const postRegister = async(req, res) => {
         const userExists = await User.exists({ email });
 
         if (userExists) {
-            return res.status(409).send("email already in use");
+            return res.status(409).send("Email already in use");
         }
 
         const encryptedPassword = await bcrypt.hash(password, 10);
@@ -50,8 +50,6 @@ export const postRegister = async(req, res) => {
 
     } catch (error) {
         console.log(error);
-        return res.status(500).send("error occurred, please try again");
+        return res.status(500).send("Error occurred, please try again");
     }
-
-    return res.send("user has been added to database");
 }

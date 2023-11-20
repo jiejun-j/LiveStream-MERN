@@ -14,7 +14,7 @@ export const patchChangePassword = async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(password, userData.password);
 
         if (!isPasswordCorrect) {
-            return res.status(400).send("old password is incorrect");
+            return res.status(400).send("Old password is incorrect");
         }
 
         // encrypt new password
@@ -23,9 +23,9 @@ export const patchChangePassword = async (req, res) => {
         // update user password
         await User.updateOne({ _id: userId }, { password: encryptPassword });
 
-        return res.status(200).send("password changed successfully");
+        return res.status(200).send("Password changed successfully");
 
     } catch (err) {
-        return res.status(500).send("error occurred, please try again");
+        return res.status(500).send("Error occurred, please try again");
     }
 }

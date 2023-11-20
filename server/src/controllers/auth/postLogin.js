@@ -24,9 +24,9 @@ export const postLogin = async(req, res) => {
             });
         }
 
-        return res.status(400).send("invalid email or password");
+        return res.status(400).send("Invalid email or password");
     } catch (err) {
         console.log(err);
-        return res.status(500).send("error occurred, please try again");
+        return res.status(500).send("Error occurred, please try again");
     }
 }

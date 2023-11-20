@@ -13,6 +13,6 @@ export const getFollowedChannels = async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        return res.status(500).send("error occurred, please try again");
+        return res.status(500).send("Error occurred, please try again");
     }
 };
