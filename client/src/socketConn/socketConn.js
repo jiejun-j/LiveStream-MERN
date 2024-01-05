@@ -6,7 +6,7 @@ let socket;
 export const connectWithSocketServer = () => {
     socket = io("http://localhost:5002");
 
-    socket.on("connection", () => {
+    socket.on("connect", () => {
         console.log("Succeccfully connected to socket server");
         console.log(socket.id);
     }); 
@@ -23,7 +23,7 @@ export const connectWithSocketServer = () => {
         console.log("Before updating the chat history:", chatMessage);
 
         setChatHistory({
-            channelId: chatMessage.channelId,
+            channelId: chatHistory.channelId,
             messages:[
                 ...chatHistory.messages,
                 {
