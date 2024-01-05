@@ -12,7 +12,7 @@ export const Chat = ({ channelId }) => {
                 <span className="chat-title-text">Stream Chat</span>
             </div>
             <Messages messages={[]} />
-            <NewMessageInput sendMessage={() => {}} />
+            <NewMessageInput sendMessage={sendMessage} />
         </div>
     );
 };    

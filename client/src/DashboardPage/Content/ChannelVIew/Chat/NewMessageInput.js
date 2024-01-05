@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const NewMessageInput = ({ sendMessage}) => {
+export const NewMessageInput = ({ sendMessage }) => {
     const [messageContent, setMessageContent] = useState("");
 
     const handleValueChange = (e) =>{
@@ -9,9 +9,12 @@ export const NewMessageInput = ({ sendMessage}) => {
 
     const handleSendMessage = () => {
         // send message to the server
+        if (messageContent.length > 0){
+            sendMessage(messageContent);
 
-        // after message is sent, clear the input field
-        setMessageContent("");
+            // after message is sent, clear the input field
+            setMessageContent("");
+        }
     };
 
     const handleKeyPress = (e) => {

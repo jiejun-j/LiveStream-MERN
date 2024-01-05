@@ -19,3 +19,10 @@ export const connectWithSocketServer = () => {
 export const getChatHistory = (channelId) => {
     socket.emit("chat-history", channelId);
 };
+
+export const sendChatMessage = (toChannel, message) => {
+    socket.emit('chat-message',{
+        toChannel,
+        message,
+    });
+};

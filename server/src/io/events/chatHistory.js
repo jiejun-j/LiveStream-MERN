@@ -1,4 +1,5 @@
 import Channel from '../../models/Channel.js';
+import Message from '../../models/Message.js';
 
 export const emitChatHistory = async (socket, channelId) => {
     try{
