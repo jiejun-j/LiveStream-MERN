@@ -1,1 +1,1 @@
-export { connectWithSocketServer } from "./socketConn";
+export { connectWithSocketServer, getChatHistory } from "./socketConn";

@@ -4,6 +4,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
+import User from './src/models/User.js';
+import Channel from './src/models/Channel.js';
+import Message from './src/models/Message.js';
+
 import authRoutes from './src/routes/authRoutes.js';
 import channelsRoutes from './src/routes/channelsRoutes.js';
 import settingsRoutes from './src/routes/settingsRoutes.js';

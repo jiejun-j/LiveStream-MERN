@@ -9,4 +9,13 @@ export const connectWithSocketServer = () => {
         console.log("Succeccfully connected to socket server");
         console.log(socket.id);
     }); 
-}
+
+    socket.on("chat-history", (chatHistory) => {
+        console.log(chatHistory);
+        console.log("Chat history came from the server");
+    });
+};
+
+export const getChatHistory = (channelId) => {
+    socket.emit("chat-history", channelId);
+};

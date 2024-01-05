@@ -48,7 +48,7 @@ export const ChannelView = () => {
                     username={channelDetails.username}
                 />
             </div>
-            <Chat />
+            <Chat channelId={channelDetails.id}/>
         </div>
     );
 };

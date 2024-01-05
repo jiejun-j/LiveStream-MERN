@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import { emitChatHistory } from "./events/chatHistory.js";
 
 let io;
 
