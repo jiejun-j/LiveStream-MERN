@@ -16,6 +16,7 @@ export const registerSocketServer = (server) => {
         console.log(socket.id);
 
         socket.on('chat-history', (channelId) => {
+            socket.join(channelId);
             emitChatHistory(socket, channelId);
         });
 
