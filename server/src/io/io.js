@@ -12,8 +12,6 @@ export const registerSocketServer = (server) => {
     });
 
     io.on("connection", (socket) => {
-        console.log("new user connected");
-        console.log(socket.id);
 
         socket.on('chat-history', (channelId) => {
             socket.join(channelId);

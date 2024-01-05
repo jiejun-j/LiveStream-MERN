@@ -8,7 +8,6 @@ export const connectWithSocketServer = () => {
 
     socket.on("connect", () => {
         console.log("Succeccfully connected to socket server");
-        console.log(socket.id);
     }); 
 
     socket.on("chat-history", (chatHistory) => {
@@ -19,8 +18,6 @@ export const connectWithSocketServer = () => {
 
     socket.on("chat-message", (chatMessage) => {
         const { chatHistory, setChatHistory } = useStore.getState();
-
-        console.log("Before updating the chat history:", chatMessage);
 
         setChatHistory({
             channelId: chatHistory.channelId,
@@ -33,8 +30,6 @@ export const connectWithSocketServer = () => {
                 }
             ],
         });
-
-        console.log("After updating chat history:", useStore.getState().chatHistory);
     });
 };
 
