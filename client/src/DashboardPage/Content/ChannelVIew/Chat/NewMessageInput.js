@@ -24,13 +24,15 @@ export const NewMessageInput = ({ sendMessage }) => {
     };
 
 
-    return <div className="chat-message-input-container">
-        <input
-            className="chat-message-input"
-            placeholder="Type message here..."
-            value={messageContent}
-            onChange={handleValueChange}
-            onKeyDown={handleKeyPress}
-        />
-    </div>;
+    return (
+        <div className="chat-message-input-container">
+            <input
+                className="chat-message-input"
+                placeholder="Type message here..."
+                value={messageContent}
+                onChange={handleValueChange}
+                onKeyDown={handleKeyPress}
+            />
+    </div>
+    );
 };

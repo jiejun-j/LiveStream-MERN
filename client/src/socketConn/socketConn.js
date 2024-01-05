@@ -18,8 +18,23 @@ export const connectWithSocketServer = () => {
     });
 
     socket.on("chat-message", (chatMessage) => {
-        console.log(chatMessage);
-        console.log("New message came");
+        const { chatHistory, setChatHistory } = useStore.getState();
+
+        console.log("Before updating the chat history:", chatMessage);
+
+        setChatHistory({
+            channelId: chatMessage.channelId,
+            messages:[
+                ...chatHistory.messages,
+                {
+                    author: chatMessage.author,
+                    content: chatMessage.content,
+                    date: chatMessage.date,
+                }
+            ],
+        });
+
+        console.log("After updating chat history:", useStore.getState().chatHistory);
     });
 };
 

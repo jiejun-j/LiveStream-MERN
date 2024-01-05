@@ -6,17 +6,19 @@ const Message = ({ author, content }) => {
         <span style = {{fontWeight:'bold'}}>{author}: </span>
         {content}
     </span>
-    )
-}
+    );
+};
 
 export const Messages = ({ messages }) => {
-    return <div className="chat-messages-container">
-        {messages.map((message) => (
-            <Message
-                key={message.id}
-                author={message.author}
-                content={message.content}
-            />
-        ))}
-    </div>;
+    return (
+        <div className="chat-messages-container">
+            {messages.map((message) => (
+                <Message
+                    key={`${message.author}-${message.content}-${message.date}`}
+                    author={message.author}
+                    content={message.content}
+                />
+            ))}
+        </div>
+    );
 };
