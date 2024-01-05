@@ -1,4 +1,5 @@
 import io from "socket.io-client";
+import { useStore } from "../store";
 
 let socket;
 
@@ -11,8 +12,9 @@ export const connectWithSocketServer = () => {
     }); 
 
     socket.on("chat-history", (chatHistory) => {
-        console.log(chatHistory);
-        console.log("Chat history came from the server");
+        const { setChatHistory } = useStore.getState();
+
+        setChatHistory(chatHistory);
     });
 
     socket.on("chat-message", (chatMessage) => {

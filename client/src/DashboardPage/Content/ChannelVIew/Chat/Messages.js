@@ -1,23 +1,5 @@
 import React from "react";
 
-const messages = [
-    {
-        author: "John",
-        content: "Hello!",
-        id: 1,
-    },
-    {
-        author: "John",
-        content: "Hello!",
-        id: 2,
-    },
-    {
-        author: "John",
-        content: "Hello!",
-        id: 3,
-    },
-];
-
 const Message = ({ author, content }) => {
     return(
     <span className="chat-messages-message">
@@ -27,7 +9,7 @@ const Message = ({ author, content }) => {
     )
 }
 
-export const Messages = () => {
+export const Messages = ({ messages }) => {
     return <div className="chat-messages-container">
         {messages.map((message) => (
             <Message
