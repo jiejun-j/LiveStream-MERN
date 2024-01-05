@@ -23,5 +23,9 @@ export const registerSocketServer = (server) => {
         socket.on('chat-message', (data) =>{
             emitChatMessage(io, { toChannel: data.toChannel, message: data.message })
         });
+
+        socket.on('chat-unsubscribe', (channelId) => {
+            socket.leave(channelId);
+        });
     });
 };

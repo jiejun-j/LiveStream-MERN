@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getChatHistory, sendChatMessage } from "../../socketConn";
+import { getChatHistory, sendChatMessage, closeChatSubscription } from "../../socketConn";
 import { useUserDetails } from "./useUserDetails";
 
 export const useChatHistory = ( channelId ) => {
@@ -8,6 +8,10 @@ export const useChatHistory = ( channelId ) => {
 
     useEffect(() => {
         getChatHistory(channelId);
+
+        return () => {
+            closeChatSubscription(channelId);
+        };
     }, []);
 
     const sendMessage = (message) => {

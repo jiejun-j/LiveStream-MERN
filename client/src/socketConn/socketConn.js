@@ -31,3 +31,7 @@ export const sendChatMessage = (toChannel, message) => {
         message,
     });
 };
+
+export const closeChatSubscription = (channelId) => {
+    socket.emit('chat-unsubscribe', channelId);
+};
