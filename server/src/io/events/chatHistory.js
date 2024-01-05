@@ -26,3 +26,25 @@ export const emitChatHistory = async (socket, channelId) => {
         });
     }
 };
+
+export const emitChatMessage = async (io, messageData) => {
+    try {
+        const channel = await Channel.findById(messageData.toChannel);
+        
+        if (channel){
+            const newMessage = new Message({
+                content: messageData.message.content,
+                author: messageData.message.author,
+                date: new Date(),
+            });
+
+            await newMessage.save();
+
+            channel.messages.push(newMessage._id);
+
+            await channel.save();
+        }
+    } catch (err) {
+        console.log(err);
+    }
+};
