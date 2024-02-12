@@ -31,11 +31,13 @@ A fully functional live-streaming platform inspired by Twitch, built using the M
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/jiejun-j/LiveStream-MERN.git
 ```
 
 2. Install dependencies for both server and client:
+
 ```bash
 cd LiveStream-MERN
 npm install
@@ -44,12 +46,17 @@ npm install
 3. Set up your environment variables in a .env file in the root directory
 
 4. Start the server:
+
 ```bash
 cd server
+npm start
+
+cd rtmp-server
 npm start
 ```
 
 5. Run the client:
+
 ```bash
 # In a new terminal window/tab
 cd client
